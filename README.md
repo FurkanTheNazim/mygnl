@@ -1,1 +1,2 @@
 # get-next-line
+hi!
