@@ -1,2 +1,0 @@
-# get-next-line
-hi!
