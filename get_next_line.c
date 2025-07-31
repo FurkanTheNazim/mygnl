@@ -19,6 +19,7 @@ static char *read_to_stash(int fd, char *stash)
 
 	while(!stash || !ft_strchr(stash, '\n'))
 	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 			return (NULL);
 		if (bytes_read == 0)
@@ -50,17 +51,16 @@ static char *get_remainder(char *stash)
 
 	line_len = 0;
 	remainder_len 0;
-	while(stash[line_len] != '\n' || stash[line_len] != '\0')
+	while((stash[line_len] && stash[line_len] !='\n'))
+		line_len++;
+	if(!stash[line_len])
 	{
-		if(!stash[line_len])
-		{
-			free(stash);
-			return (NULL);
-			line_len++;
-		}
-		remainder_len = ft_strlen(stash) - line_len;
-		remainder = ft_substr(stash, remainder_len, );
+		free(stash);
+		return (NULL);
+		line_len++;
 	}
+	remainder_len = ft_strlen(stash) - line_len;
+	remainder = ft_substr(stash, remainder_len, );
 	free(stash);
 	return (remainder);
 }
