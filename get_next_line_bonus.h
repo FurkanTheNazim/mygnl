@@ -18,8 +18,9 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
-#  define MAX_FD 4096
 # endif
+
+# define MAX_FD 4096
 
 char	*get_next_line(int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
