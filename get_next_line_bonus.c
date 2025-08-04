@@ -25,10 +25,7 @@ static char	*read_to_stash(int fd, char *stash)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
-		{
-			free(buffer);
-			return (NULL);
-		}
+			return (free(buffer), NULL);
 		if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
